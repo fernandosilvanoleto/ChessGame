@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessGame.Tabuleiro;
 
 namespace ChessGame
 {
@@ -10,7 +11,14 @@ namespace ChessGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Olá Mundo!!! Jogo de Xadrez!!!");
+            Posicao P;
+
+            P = new Posicao(3, 4);
+
+            Console.WriteLine("Posição: " + P);
+
+            Console.WriteLine();
+
         }
     }
 }
