@@ -11,11 +11,14 @@ namespace ChessGame
     {
         static void Main(string[] args)
         {
+            /*
             Posicao P;
-
             P = new Posicao(3, 4);
-
             Console.WriteLine("Posição: " + P);
+            Console.WriteLine();
+            */
+
+            TabuleiroChess tabuleiro = new TabuleiroChess(8, 8);
 
             Console.WriteLine();
 
