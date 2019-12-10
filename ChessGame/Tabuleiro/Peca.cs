@@ -13,9 +13,9 @@ namespace ChessGame.Tabuleiro
         public int quantMovimentos { get; protected set; }
         public TabuleiroChess tabuleiro { get; protected set; }
 
-        public Peca(Posicao posicao, TabuleiroChess tab, Color cor)
+        public Peca(TabuleiroChess tab, Color cor)
         {
-            this.posicao = posicao;
+            this.posicao = null;
             this.tabuleiro = tab;
             this.cor = cor;
             this.quantMovimentos = 0;

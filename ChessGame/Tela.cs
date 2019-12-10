@@ -17,7 +17,7 @@ namespace ChessGame
                 {
                     if(tabuleiro.pecaPosicao(i, j) == null)
                     {
-                        Console.Write(" - ");
+                        Console.Write("- ");
                     }
                     else
                     {
