@@ -19,5 +19,10 @@ namespace ChessGame.Tabuleiro
             pecas = new Peca[linhas, colunas];
         }
 
+        public Peca pecaPosicao(int linha, int coluna)
+        {
+            return pecas[linha, coluna];
+        }
+        
     }
 }

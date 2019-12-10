@@ -20,6 +20,8 @@ namespace ChessGame
 
             TabuleiroChess tabuleiro = new TabuleiroChess(8, 8);
 
+            Tela.imprimirTabuleiro(tabuleiro);
+
             Console.WriteLine();
 
         }
