@@ -18,26 +18,24 @@ namespace ChessGame
                 Posicao P;
                 P = new Posicao(3, 4);
                 Console.WriteLine("Posição: " + P);
-                Console.WriteLine();
-                */
+                Console.WriteLine();         
 
-                TabuleiroChess tabuleiro = new TabuleiroChess(8, 8);
-
-                tabuleiro.colocarPeca(new Torre(tabuleiro, Color.Preta), new Posicao(0, 0));
-                tabuleiro.colocarPeca(new Torre(tabuleiro, Color.Preta), new Posicao(1, 3));
-                tabuleiro.colocarPeca(new Rei(tabuleiro, Color.Preta), new Posicao(0, 2));
-                tabuleiro.colocarPeca(new Rei(tabuleiro, Color.Branca), new Posicao(1, 7));
+                TabuleiroChess tabuleiro = new TabuleiroChess(8, 8);                
 
                 Tela.imprimirTabuleiro(tabuleiro);
 
                 Console.WriteLine();
-                /*
+                
                 PosicaoXadrez pos = new PosicaoXadrez('c', 7);
 
                 Console.WriteLine(pos.toPosicao());
 
                 Console.WriteLine();
                 */
+
+                PartidaXadrez partida = new PartidaXadrez();
+
+                Tela.imprimirTabuleiro(partida.tab);
 
             }
             catch (TabuleiroChessException e)

@@ -21,5 +21,9 @@ namespace ChessGame.Tabuleiro
             this.quantMovimentos = 0;
         }
 
+        public void incrementarQtdeMovimento()
+        {
+            quantMovimentos++;
+        }
     }
 }
