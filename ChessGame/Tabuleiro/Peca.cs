@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ChessGame.Tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao posicao { get; set; }
         public Color cor { get; protected set; }
         public int quantMovimentos { get; protected set; }
         public TabuleiroChess tabuleiro { get; protected set; }
 
-        public Peca(TabuleiroChess tab, Color cor)
+        public Peca(TabuleiroChess tabuleiro, Color cor)
         {
             this.posicao = null;
-            this.tabuleiro = tab;
+            this.tabuleiro = tabuleiro;
             this.cor = cor;
             this.quantMovimentos = 0;
         }
@@ -25,5 +25,8 @@ namespace ChessGame.Tabuleiro
         {
             quantMovimentos++;
         }
+
+        public abstract bool[,] movimentosPossiveis();      
+
     }
 }
