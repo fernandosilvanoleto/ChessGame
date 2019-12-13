@@ -10,8 +10,8 @@ namespace ChessGame.Xadrez
     class PartidaXadrez
     {
         public TabuleiroChess tab { get; private set; }
-        private int turno { get; set; }
-        private Color jogadorAtual { get; set; }
+        public int turno { get; private set; }
+        public Color jogadorAtual { get; private set; }
         public bool Terminada { get; private set; }
 
         public PartidaXadrez()
@@ -29,6 +29,25 @@ namespace ChessGame.Xadrez
             p.incrementarQtdeMovimento();
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
+        }
+
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            executaMovimento(origem, destino);
+            turno++;
+            mudaJogador();
+        }
+
+        private void mudaJogador()
+        {
+            if (jogadorAtual == Color.Branca)
+            {
+                jogadorAtual = Color.Preta;
+            }
+            else
+            {
+                jogadorAtual = Color.Branca;
+            }
         }
 
         private void colocarPecas()
