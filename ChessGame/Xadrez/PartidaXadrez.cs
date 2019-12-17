@@ -123,14 +123,14 @@ namespace ChessGame.Xadrez
             colocarNovaPeca('d', 2, new Torre(tab, Color.Branca));
             colocarNovaPeca('e', 2, new Torre(tab, Color.Branca));
             colocarNovaPeca('e', 1, new Torre(tab, Color.Branca));
-            colocarNovaPeca('d', 1, new Torre(tab, Color.Branca));
+            colocarNovaPeca('d', 1, new Rei(tab, Color.Branca));
 
             colocarNovaPeca('c', 7, new Torre(tab, Color.Preta));
             colocarNovaPeca('c', 8, new Torre(tab, Color.Preta));
             colocarNovaPeca('d', 7, new Torre(tab, Color.Preta));
             colocarNovaPeca('e', 7, new Torre(tab, Color.Preta));
             colocarNovaPeca('e', 8, new Torre(tab, Color.Preta));
-            colocarNovaPeca('d', 8, new Torre(tab, Color.Preta));
+            colocarNovaPeca('d', 8, new Rei(tab, Color.Preta));
 
             /*tab.colocarPeca(new Torre(tab, Color.Branca), new PosicaoXadrez('c', 1).toPosicao());
             tab.colocarPeca(new Torre(tab, Color.Branca), new PosicaoXadrez('c', 2).toPosicao());
