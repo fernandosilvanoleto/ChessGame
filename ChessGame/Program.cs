@@ -62,7 +62,8 @@ namespace ChessGame
                         Console.ReadLine();
                     }
                 }
-
+                Console.Clear();
+                Tela.imprimirPartida(partida);
             }
             catch (TabuleiroChessException e)
             {

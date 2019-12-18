@@ -90,12 +90,22 @@ namespace ChessGame
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.turno);
-            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
-            if (partida.xeque)
+
+            if (!partida.Terminada)
             {
-                Console.WriteLine();
-                Console.WriteLine("       VOCÊ ESTÁ EM XEQUE!");
+                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("       VOCÊ ESTÁ EM XEQUE!");
+                }
             }
+            else
+            {
+                Console.WriteLine("XEQUE MATE!!!");
+                Console.WriteLine("Vencedor da Partida: " + partida.jogadorAtual);
+            }
+           
         }
 
         public static void imprimirPecasCapturadas(PartidaXadrez partida)
