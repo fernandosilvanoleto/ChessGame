@@ -26,6 +26,12 @@ namespace ChessGame.Tabuleiro
             quantMovimentos++;
         }
 
+        public void decrementarQtdeMovimento()
+        {
+            Console.WriteLine("Controle 4");
+            quantMovimentos--;
+        }
+
         public bool existeMovimentosPossiveis()
         {
             bool[,] mat = movimentosPossiveis();
