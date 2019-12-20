@@ -40,6 +40,27 @@ namespace ChessGame.Xadrez
             {
                 capturadas.Add(pecaCapturada);
             }
+
+            // #JOGADAESPECIAL ROQUE PEQUENO
+            if (p is Rei && destino.Coluna == origem.Coluna + 2)
+            {
+                Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna + 3);
+                Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna + 1);
+                Peca torre = tab.retirarPeca(origemTorre);
+                torre.incrementarQtdeMovimento();
+                tab.colocarPeca(torre, destinoTorre);
+            }
+
+            // #JOGADAESPECIAL ROQUE GRANDE
+            if (p is Rei && destino.Coluna == origem.Coluna - 2)
+            {
+                Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna - 4);
+                Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna - 1);
+                Peca torre = tab.retirarPeca(origemTorre);
+                torre.incrementarQtdeMovimento();
+                tab.colocarPeca(torre, destinoTorre);
+            }
+
             return pecaCapturada;
         }
 
@@ -53,6 +74,27 @@ namespace ChessGame.Xadrez
                 tab.colocarPeca(pecaCapturada, destino);
                 capturadas.Remove(pecaCapturada);
             }
+
+            // #JOGADAESPECIAL ROQUE PEQUENO
+            if (p is Rei && destino.Coluna == origem.Coluna + 2)
+            {
+                Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna + 3);
+                Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna + 1);
+                Peca torre = tab.retirarPeca(destinoTorre);
+                torre.decrementarQtdeMovimento();
+                tab.colocarPeca(torre, origemTorre);
+            }
+
+            // #JOGADAESPECIAL ROQUE GRANDE
+            if (p is Rei && destino.Coluna == origem.Coluna - 2)
+            {
+                Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna - 4);
+                Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna - 1);
+                Peca torre = tab.retirarPeca(destinoTorre);
+                torre.decrementarQtdeMovimento();
+                tab.colocarPeca(torre, origemTorre);
+            }
+
             tab.colocarPeca(p, origem);
         }
 
@@ -240,7 +282,7 @@ namespace ChessGame.Xadrez
             colocarNovaPeca('b', 1, new Cavalo(tab, Color.Branca));
             colocarNovaPeca('c', 1, new Bispo(tab, Color.Branca));
             colocarNovaPeca('d', 1, new Dama(tab, Color.Branca));
-            colocarNovaPeca('e', 1, new Rei(tab, Color.Branca));
+            colocarNovaPeca('e', 1, new Rei(tab, Color.Branca, this));
             colocarNovaPeca('f', 1, new Bispo(tab, Color.Branca));
             colocarNovaPeca('g', 1, new Cavalo(tab, Color.Branca));
             colocarNovaPeca('h', 1, new Torre(tab, Color.Branca));
@@ -259,7 +301,7 @@ namespace ChessGame.Xadrez
             colocarNovaPeca('b', 8, new Cavalo(tab, Color.Preta));
             colocarNovaPeca('c', 8, new Bispo(tab, Color.Preta));
             colocarNovaPeca('d', 8, new Dama(tab, Color.Preta));
-            colocarNovaPeca('e', 8, new Rei(tab, Color.Preta));
+            colocarNovaPeca('e', 8, new Rei(tab, Color.Preta, this));
             colocarNovaPeca('f', 8, new Bispo(tab, Color.Preta));
             colocarNovaPeca('g', 8, new Cavalo(tab, Color.Preta));
             colocarNovaPeca('h', 8, new Torre(tab, Color.Preta));

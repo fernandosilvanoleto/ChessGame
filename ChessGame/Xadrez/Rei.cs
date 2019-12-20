@@ -9,8 +9,13 @@ namespace ChessGame.Xadrez
 {
     class Rei : Peca
     {
-        public Rei(TabuleiroChess tabuleiro, Color cor) : base(tabuleiro, cor)
-        { }
+        private PartidaXadrez Partida { get; set; }
+
+        public Rei(TabuleiroChess tabuleiro, Color cor, PartidaXadrez partida) 
+            : base(tabuleiro, cor)
+        {
+            this.Partida = partida;
+        }
 
         public override string ToString()
         {
@@ -21,6 +26,13 @@ namespace ChessGame.Xadrez
         {
             Peca p = tabuleiro.peca(pos);
             return p == null || p.cor != this.cor;
+        }
+
+        private bool testeTorreParaRoque(Posicao pos)
+        {
+            Peca p = tabuleiro.peca(pos);
+            return p != null && p is Torre && p.cor == cor && p.quantMovimentos == 0;
+
         }
 
         public override bool[,] movimentosPossiveis()
@@ -83,6 +95,35 @@ namespace ChessGame.Xadrez
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
+            }
+
+            // #JOGADAESPECIAL ROQUE
+
+            if (quantMovimentos == 0 && !Partida.xeque)
+            {
+                // #JOGADAESPECIAL ROQUE PEQUENO
+                Posicao posT1 = new Posicao(posicao.Linha, posicao.Coluna + 3);
+                if (testeTorreParaRoque(posT1))
+                {
+                    Posicao p1 = new Posicao(posicao.Linha, posicao.Coluna + 1);
+                    Posicao p2 = new Posicao(posicao.Linha, posicao.Coluna + 2);
+                    if (tabuleiro.peca(p1) == null && tabuleiro.peca(p2) == null)
+                    {
+                        mat[posicao.Linha, posicao.Coluna + 2] = true;
+                    }
+                }
+                // #JOGADAESPECIAL ROQUE GRANDE
+                Posicao posT2 = new Posicao(posicao.Linha, posicao.Coluna - 4);
+                if (testeTorreParaRoque(posT2))
+                {
+                    Posicao p1 = new Posicao(posicao.Linha, posicao.Coluna - 1);
+                    Posicao p2 = new Posicao(posicao.Linha, posicao.Coluna - 2);
+                    Posicao p3 = new Posicao(posicao.Linha, posicao.Coluna - 3);
+                    if (tabuleiro.peca(p1) == null && tabuleiro.peca(p2) == null && tabuleiro.peca(p3) == null)
+                    {
+                        mat[posicao.Linha, posicao.Coluna - 2] = true;
+                    }
+                }
             }
 
             return mat;
