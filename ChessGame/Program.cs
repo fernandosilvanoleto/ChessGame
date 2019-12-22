@@ -61,6 +61,10 @@ namespace ChessGame
                         Console.WriteLine(ex.Message);
                         Console.ReadLine();
                     }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
                 Console.Clear();
                 Tela.imprimirPartida(partida);
